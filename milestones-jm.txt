@@ -1,3 +1,22 @@
-1.start setting up virtual environment and write instructions on how to use virtual environment. 5 points
-2.start pulling data from the api. 20 points
-3.
+Taegun Harshbarger
+Fantasy Stocks
+
+GitHub Link: https://github.com/JacobMalloy/cs302-fantasy_stocks
+
+
+Time Log:
+10/18 - 2 hours - setup the environment and start pulling data in lab.
+
+
+
+Rubric:
+10 points - Setup environment and give instructions to set it up yourself
+10 points - Get player data and be able to manipulate it in ways needed.
+10 points - Determine the algorithm for finding the market value of players.
+10 points - Generate the change in value for the players over the course of a season.
+Total: 40 points
+
+Challenge07 Report:
+I think that the instructions for this challenge were very unclear. I had a lot of questions about what the rubric was for why a lot 
+of this is individual work. I do think that the challenge helped us get started and get in a good place, but I wish it was more specific
+in what it wanted in the instructions.
