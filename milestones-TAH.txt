@@ -1,0 +1,22 @@
+Taegun Harshbarger
+Fantasy Stocks
+
+GitHub Link: https://github.com/JacobMalloy/cs302-fantasy_stocks
+
+
+Time Log:
+10/18 - 2 hours - learning Python in lab
+
+
+
+Rubric:
+10 points - Able to view player Stocks
+10 points - Able to buy player Stocks
+10 points - Player stocks change with player game statistics
+10 points - Uploaded to github
+Total: 40 points
+
+Challenge07 Report:
+I think that the instructions for this challenge were very unclear. I had a lot of questions about what the rubric was for why a lot 
+of this is individual work. I do think that the challenge helped us get started and get in a good place, but I wish it was more specific
+in what it wanted in the instructions.
