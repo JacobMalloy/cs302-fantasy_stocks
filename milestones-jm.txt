@@ -1,4 +1,4 @@
-Taegun Harshbarger
+Jacob Malloy
 Fantasy Stocks
 
 GitHub Link: https://github.com/JacobMalloy/cs302-fantasy_stocks
@@ -6,6 +6,7 @@ GitHub Link: https://github.com/JacobMalloy/cs302-fantasy_stocks
 
 Time Log:
 10/18 - 2 hours - setup the environment and start pulling data in lab.
+10/20 - 4 hours - work on processing the data to make a algorithm to value players.
 
 
 
@@ -13,10 +14,11 @@ Rubric:
 10 points - Setup environment and give instructions to set it up yourself
 10 points - Get player data and be able to manipulate it in ways needed.
 10 points - Determine the algorithm for finding the market value of players.
-10 points - Generate the change in value for the players over the course of a season.
+10 points - Generate Graphs so that the overall inflation can be evaluated.
 Total: 40 points
 
 Challenge07 Report:
-I think that the instructions for this challenge were very unclear. I had a lot of questions about what the rubric was for why a lot 
-of this is individual work. I do think that the challenge helped us get started and get in a good place, but I wish it was more specific
-in what it wanted in the instructions.
+
+This challenge went alright. I was not terribly sure what was expected, and it seemed that the ta's where not completely sure
+either. I also felt like 6 hours was alot since I usually spend less than 2 on each project. But overall it has gone well and
+I feel like I have a really good start in analyzing data and scoring the players.
