@@ -6,8 +6,7 @@ GitHub Link: https://github.com/JacobMalloy/cs302-fantasy_stocks
 
 Time Log:
 10/18 - 2 hours - learning Python in lab
-
-
+10/21 - 4 hours - learning Python
 
 Rubric:
 10 points - Able to view player Stocks
