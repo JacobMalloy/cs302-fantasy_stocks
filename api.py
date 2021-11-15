@@ -9,12 +9,6 @@ data_frames=dict()
 data = dict()
 players = dict()
 
-class player_data:
-    def __init__(self, name, start):
-        self.name = name
-        self.start = start#starting and ending years
-        self.end=start
-
 def setup():
     #gets all of the csv files.
     for year in range(1999,2021):
