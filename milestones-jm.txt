@@ -8,6 +8,8 @@ Time Log:
 10/18 - 2 hours - setup the environment and start pulling data in lab.
 10/20 - 4 hours - work on processing the data to make a algorithm to value players.
 11/07 - 1 hour  - Work on setting up the api framework for us to work in.
+11/14 - 2 hours - Meeting with Taegun and getting the api returning player information.
+11/15 - 1 hour  - Between lab and some time outside working on making the beginning of the website
 
 
 
