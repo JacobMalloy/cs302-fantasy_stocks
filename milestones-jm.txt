@@ -10,6 +10,7 @@ Time Log:
 11/07 - 1 hour  - Work on setting up the api framework for us to work in.
 11/14 - 2 hours - Meeting with Taegun and getting the api returning player information.
 11/15 - 1 hour  - Between lab and some time outside working on making the beginning of the website
+11/15 - 30 minutes - Worked on the html that fills the select tag with the players for picking.
 
 
 
