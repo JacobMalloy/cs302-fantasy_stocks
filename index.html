@@ -4,10 +4,35 @@
         <title>Fantasy Stocks</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
+            var players;
 
+            function update_stats(){
+                let name = $("#player_name").val();
+                let p = players[name];
+                $("#years").html(p["start"]+"-"+p["end"]);
+            }
+
+            $( document ).ready(function() {
+                $.get( "http://localhost:5555/get_players/", function( data ) {
+                    let string_value = "";
+                    players = JSON.parse(data);
+                    for(let name in players){
+                        string_value+="<option value=\""+name+"\">"+name+"</option>";
+
+                    }
+                    $( "#player_name" ).html( string_value );
+                    update_stats();
+
+                    });
+                $("#player_name").change(update_stats);
+            });
         </script>
     </head>
     <body>
+        <select name="player_name" id="player_name">
+        </select>
+
+        <div id="years"></div>
 
     </body>
 </html>
