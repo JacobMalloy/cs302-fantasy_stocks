@@ -1,8 +1,10 @@
 from flask import Flask
+from flask_cors import CORS
 import pandas as pd
 import json
 
 app = Flask(__name__)
+CORS(app)
 
 csv_files=dict()
 data_frames=dict()
@@ -16,9 +18,10 @@ def setup():
             csv_files[f"{year}-{week:02}"]=(f"./data/{year}/week{week}.csv")
     #declare the dataframes pulling the data from the csv files
     for i in csv_files:
-        data_frames[i]=(pd.read_csv(csv_files[i])[["Player","PPRFantasyPoints","Pos"]])
+        data_frames[i]=(pd.read_csv(csv_files[i])[["Player","PPRFantasyPoints","Pos","Tm"]])
 
     #setup data and player data structure
+    #get player position and team into the players object
     for i in data_frames:
         data[i]=dict()
         for index, row in data_frames[i].iterrows():
