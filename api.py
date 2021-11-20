@@ -1,7 +1,10 @@
 from flask import Flask
+from flask import Response
 from flask_cors import CORS
 import pandas as pd
 import json
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.figure import Figure
 
 app = Flask(__name__)
 CORS(app)
@@ -46,6 +49,15 @@ def get_players():#get the names of players and return a json file of their name
 def welcome():
     return pd.read_csv("./data/2019/week6.csv").to_json()
     
+@app.route('/plot.png')
+def plot_png():
+    fig = create_figure()
+    output = io.BytesIO()
+    FigureCanvas(fig).print_png(output)
+    return Response(output.getvalue(), mimetype='image/png')
+
+def create_graph():
+    fig = Figure()
 
 if __name__ == '__main__':
     setup()
