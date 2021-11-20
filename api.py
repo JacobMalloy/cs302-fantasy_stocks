@@ -1,3 +1,7 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import io
+import random
 from flask import Flask
 from flask import Response
 from flask_cors import CORS
@@ -49,15 +53,50 @@ def get_players():#get the names of players and return a json file of their name
 def welcome():
     return pd.read_csv("./data/2019/week6.csv").to_json()
     
-@app.route('/plot.png')
+@app.route('/plot.png/')
 def plot_png():
     fig = create_figure()
     output = io.BytesIO()
     FigureCanvas(fig).print_png(output)
     return Response(output.getvalue(), mimetype='image/png')
 
-def create_graph():
-    fig = Figure()
+def create_figure():
+
+    playerData=dict()
+    score =0.0
+    upto="2020-17"
+    player="Peyton Manning"
+    for i in data:
+        if i==upto:
+            break
+        score*=.8
+        if player in data[i]:
+            score += data[i][player]
+        if score<0:
+            score =0
+        playerData[i]=score
+    lists = sorted(playerData.items()) # sorted by key, return a list of tuples
+
+
+    fig = plt.figure(figsize=(12, 6))
+
+    ax = fig.add_subplot(121)
+
+
+    x, y = zip(*lists) # unpack a list of pairs into two tuples
+    x = list(x)
+    x = [val.split("-")[0] if val.split("-")[1]=="01" else val for val in x]
+    plt.plot(x, y)
+
+    ax.plot(x,y)
+
+    fig.canvas.draw()
+    ax.set_xticks(np.arange(0, len(x)+1, 17))
+    #ax.set_xticklabels([x.get_text().split("-")[0] for x in ax.get_xticklabels()] )
+    plt.xticks(rotation = 45) # Rotates X-Axis Ticks by 45-degrees
+
+    return fig
+
 
 if __name__ == '__main__':
     setup()
