@@ -29,9 +29,11 @@ def setup():
             if s not in players:
                 players[s] = dict()
                 players[s]["start"]=i.split("-")[0]
+                players[s]["Pos"]=row["Pos"]
             players[s]["end"]=i.split("-")[0]
             p = row["PPRFantasyPoints"]
             data[i][s]=p
+
     
 
 @app.route("/get_players/", methods=['GET', 'POST'])
