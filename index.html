@@ -10,6 +10,7 @@
                 let name = $("#player_name").val();
                 let p = players[name];
                 $("#years").html(p["start"]+"-"+p["end"]);
+                $("#plot").attr("src","http://localhost:5555/plot.png?player="+name.replace(" ","%20"));
             }
 
             $( document ).ready(function() {
@@ -33,6 +34,7 @@
         </select>
 
         <div id="years"></div>
+        <img id="plot">
 
     </body>
 </html>
