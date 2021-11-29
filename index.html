@@ -7,32 +7,32 @@
         <script>
             var players;
 
-            function update_stats(){
+            function update_stats(){//update the years, positions and the graph
                 let name = $("#player_name").val();
                 let p = players[name];
                 $("#years").html(p["start"]+"-"+p["end"]);
                 $("#pos").html(p["pos"]);
-                $("#plot").attr("src","http://localhost:5555/plot.png?player="+name.replace(" ","%20"));
+                $("#plot").attr("src","http://localhost:5555/plot.png?player="+name.replace(" ","%20"));//get the graph from the python api
             }
 
-            function update_picker(){
+            function update_picker(){//put the player names into the picker
                 var string_value="";
-                for(let name in players){
+                for(let name in players){//loop through the players
                     let position = players[name]["pos"].toLowerCase();
-                    if(position!="def"&&position!="ol"&&position!="rcb"&&position!="p")
+                    if(position!="def"&&position!="ol"&&position!="rcb"&&position!="p")//remove positions with little to no data
                         string_value+="<option value=\""+name+"\">"+name+"</option>";
                 }
-                $( "#player_name" ).html( string_value );
+                $( "#player_name" ).html( string_value );//output the html
             }
 
-            $( document ).ready(function() {
-                $.get( "http://localhost:5555/get_players/", function( data ) {
-                    players = JSON.parse(data);
+            $( document ).ready(function() {//function to run when ready
+                $.get( "http://localhost:5555/get_players/", function( data ) {//send request to get the player data json
+                    players = JSON.parse(data);//parse json
                     update_picker();
                     update_stats();
 
                     });
-                $("#player_name").change(update_stats);
+                $("#player_name").change(update_stats);//make the update stats run on picker change
             });
         </script>
     </head>

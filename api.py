@@ -1,3 +1,9 @@
+#Jacob Malloy and Taegun Harshbarger
+#api.py
+#implement a flask api in python to be the backend for the project
+
+
+#lots of dependencies in the normal style of python
 from flask.wrappers import Request
 import matplotlib.pyplot as plt
 import numpy as np
@@ -12,17 +18,20 @@ import json
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 
-app = Flask(__name__)
-CORS(app)
 
-data = dict()
-players = dict()
+app = Flask(__name__)#create a flask app for the program
+CORS(app)#make the app cross origin compatible
+
+data = dict()#declare data to be used
+players = dict()#declare the player list
 
 def setup():
-    global players
+    global players#these are two variables that are global
     global data
-    csv_files=dict()
-    data_frames=dict()
+
+    csv_files=dict()#local variable for the names of csv files that are not needed outside the setup
+    data_frames=dict()#dataframes used to extract data
+
     #gets all of the csv files.
     for year in range(1999,2021):
         for week in range(1,18):
@@ -44,7 +53,7 @@ def setup():
             players[s]["end"]=i.split("-")[0]
             p = row["PPRFantasyPoints"]
             data[i][s]=p
-    players={key: value for key, value in sorted(players.items(), key=lambda item: item[0])}
+    players={key: value for key, value in sorted(players.items(), key=lambda item: item[0])}#sort the players before returning them
 
 
 
@@ -60,17 +69,17 @@ def welcome():
 
 @app.route('/plot.png/')
 def plot_png():
-    fig = create_figure(flask.request.args.get("player").replace("%20"," "))
+    fig = create_figure(flask.request.args.get("player").replace("%20"," "))#get the value from the get request and change %20 to spaces
     output = io.BytesIO()
     FigureCanvas(fig).print_png(output)
-    plt.close(fig)
-    return Response(output.getvalue(), mimetype='image/png')
+    plt.close(fig)#cleanup memory in a garbage collected language?
+    return Response(output.getvalue(), mimetype='image/png')#output the images
 
 def create_figure(player):
 
     playerData=dict()
     score =0.0
-    upto="2020-17"
+    upto="2020-17"#this is the latest data we have
     for i in data:
         if i==upto:
             break
@@ -90,7 +99,7 @@ def create_figure(player):
 
     x, y = zip(*lists) # unpack a list of pairs into two tuples
     x = list(x)
-    x = [val.split("-")[0] if val.split("-")[1]=="01" else val for val in x]
+    x = [val.split("-")[0] if val.split("-")[1]=="01" else val for val in x]#change the first weeks to not have the `-week`part
     plt.plot(x, y)
     plt.ylim(0,None);
 
@@ -105,5 +114,5 @@ def create_figure(player):
 
 
 if __name__ == '__main__':
-    setup()
-    app.run(host='0.0.0.0', port=5555)
+    setup()#run the setup
+    app.run(host='0.0.0.0', port=5555)#run on 5555 becuase it is an open port that can be easily used
