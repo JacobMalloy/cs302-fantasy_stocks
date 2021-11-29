@@ -18,7 +18,9 @@
             function update_picker(){
                 var string_value="";
                 for(let name in players){
-                    string_value+="<option value=\""+name+"\">"+name+"</option>";
+                    let position = players[name]["pos"].toLowerCase();
+                    if(position!="def"&&position!="ol"&&position!="rcb"&&position!="p")
+                        string_value+="<option value=\""+name+"\">"+name+"</option>";
                 }
                 $( "#player_name" ).html( string_value );
             }
