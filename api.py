@@ -63,6 +63,7 @@ def plot_png():
     fig = create_figure(flask.request.args.get("player").replace("%20"," "))
     output = io.BytesIO()
     FigureCanvas(fig).print_png(output)
+    plt.close(fig)
     return Response(output.getvalue(), mimetype='image/png')
 
 def create_figure(player):
