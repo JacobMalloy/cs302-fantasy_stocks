@@ -40,7 +40,7 @@ def setup():
             if s not in players:
                 players[s] = dict()
                 players[s]["start"]=i.split("-")[0]
-                #players[s]["Pos"]=row["Pos"]
+                players[s]["pos"]=str(row["Pos"])
             players[s]["end"]=i.split("-")[0]
             p = row["PPRFantasyPoints"]
             data[i][s]=p
@@ -91,6 +91,7 @@ def create_figure(player):
     x = list(x)
     x = [val.split("-")[0] if val.split("-")[1]=="01" else val for val in x]
     plt.plot(x, y)
+    plt.ylim(0,None);
 
     ax.plot(x,y)
 
